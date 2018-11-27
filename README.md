@@ -3,10 +3,10 @@
    
 -About Solution and Reason behind choosing specific tech stack:
 
-Spring Boot -           It does lot of auto-configuration for us ,easy to create proejct and dependency also has embedded Tomcat Server also one of the main reason is I am using it for my current application.
+Spring Boot - It does lot of auto-configuration for us ,easy to create proejct and dependency also has embedded Tomcat Server also one of the main reason is I am using it for my current application.
 
-MongoDB -    I pulled it from Docker. High performance, high availability,automatic scaling, simple to install and implement, MongoDB uses JSON or BSON documents to store data.
-  .
+MongoDB -  I pulled it from Docker. High performance, high availability,automatic scaling, simple to install and implement, MongoDB uses JSON or BSON documents to store data.
+
 JDBC and In-memory Authentication with spring Security : For Enterprise Application we do it different way by using LDAP, SAML, OpenId,Authorization Server but for this Use case I have not consider these concepts implementation as it will take good amount of time.
 
 Spring Rest : It was given in requirement that We have to write Rest API . I have worked on REST-API With Jersey and REST-API with Spring , I choose Spring because of Spring Boot selection. 
