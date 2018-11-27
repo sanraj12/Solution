@@ -1,6 +1,7 @@
 # target-Use-Case-Solution
    This is a Java / Maven / Spring Boot application solution for given use case.
--##About Solution and Reason behind choosing specific tech stack:
+   
+-About Solution and Reason behind choosing specific tech stack:
 
 Spring Boot -           It does lot of auto-configuration for us ,easy to create proejct and dependency also has embedded Tomcat Server also one of the main reason is I am using it for my current application.
 
