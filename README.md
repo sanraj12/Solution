@@ -17,7 +17,7 @@ Schema.sql will be exceuted by spring boot and  \src\main\resources
 ## Once MongoDb is installed and working perfectlly we will have to create database and collection.
      -use target_shops
       -create collection with name products.
-        -insert few collection into database.
+        -insert few collection into database, Example below
                    - {
                     -  _id: 50
                       - item: "product_1"
@@ -125,7 +125,7 @@ Application will be deployed on embedded Tomcat Server when run the application 
 	</build>
 </project>
 
-## Controller or Service Class
+## Controller/Service Class
 package com.example.demo.service;
 
 import java.util.List;
