@@ -1,4 +1,4 @@
-# target-Use-app
+# target-Use-Case-Solution
 This is a Java / Maven / Spring Boot application solution for given use case.
 ## Requirements
 Spring Boot comes with embedded Tomcat Server.
