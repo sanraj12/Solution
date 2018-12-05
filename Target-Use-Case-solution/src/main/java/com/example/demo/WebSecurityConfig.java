@@ -1,4 +1,4 @@
-/*package com.example.demo;
+package com.example.demo;
 
 import javax.sql.DataSource;
 
@@ -46,4 +46,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	}
 
-}*/
+}
