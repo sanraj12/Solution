@@ -2,7 +2,6 @@ package com.example.demo;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +12,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -122,33 +118,13 @@ public class TargetUseCaseSolutionApplicationTests {
 
 	}
 
-	@Test
-	public void modifyProductById() throws Exception {
-
-		String uri = "/product/20";
-
-
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON);
-
-		MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();
-
-		int status = mvcResult.getResponse().getStatus();
-
-		assertEquals(200, status);
-
-	}
 	
 	@Test
 	public void deleteProduct() throws Exception {
 
 		String uri = "/product/20";
-		Products products = new Products();
-		products.setId("20");
-		products.setItem("Retail Item");
-		products.setDescription("For Home use");
-		products.setPrice(new Price("100", "USD"));
 
-		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON);
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.delete(uri).accept(MediaType.APPLICATION_JSON);
 
 		MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();
 

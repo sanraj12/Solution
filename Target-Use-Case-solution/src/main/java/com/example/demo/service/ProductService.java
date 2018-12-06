@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.bean.Products;
+import com.example.demo.error.ProductNotFoundException;
 import com.example.demo.repository.ProductsRepository;
 import com.example.demo.serviceImpl.ProductServiceImpl;
 
@@ -37,6 +38,10 @@ public class ProductService {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Optional<Products> getProductById(@PathVariable("id") String id) {
+		Optional<Products> optional = ProductService.getProductById(id);
+
+		if (!optional.isPresent())
+			throw new ProductNotFoundException(id);
 		return ProductService.getProductById(id);
 	}
 
