@@ -1,10 +1,12 @@
 package com.example.demo;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -86,6 +88,67 @@ public class TargetUseCaseSolutionApplicationTests {
 
 		RequestBuilder requestBuilder = MockMvcRequestBuilders.post(uri).accept(MediaType.APPLICATION_JSON)
 				.contentType(MediaType.APPLICATION_JSON).content(asJsonString(products));
+
+		MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();
+
+		int status = mvcResult.getResponse().getStatus();
+
+		assertEquals(200, status);
+
+	}
+
+	@Test
+	public void getProductById() throws Exception {
+
+		String uri = "/product/20";
+		Products products = new Products();
+		products.setId("20");
+		products.setItem("Retail Item");
+		products.setDescription("For Home use");
+		products.setPrice(new Price("100", "USD"));
+
+		Optional<Products> optional = Optional.of(products);
+
+		Mockito.when(productService.getProductById(Mockito.anyString())).thenReturn(optional);
+
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON);
+
+		MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();
+
+		int status = mvcResult.getResponse().getStatus();
+
+		assertEquals(200, status);
+		assertTrue(mvcResult.getResponse().getContentAsString().contains("For Home use"));
+
+	}
+
+	@Test
+	public void modifyProductById() throws Exception {
+
+		String uri = "/product/20";
+
+
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON);
+
+		MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();
+
+		int status = mvcResult.getResponse().getStatus();
+
+		assertEquals(200, status);
+
+	}
+	
+	@Test
+	public void deleteProduct() throws Exception {
+
+		String uri = "/product/20";
+		Products products = new Products();
+		products.setId("20");
+		products.setItem("Retail Item");
+		products.setDescription("For Home use");
+		products.setPrice(new Price("100", "USD"));
+
+		RequestBuilder requestBuilder = MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON);
 
 		MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();
 
